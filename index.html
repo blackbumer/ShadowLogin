@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShadowLogin - Virtual Account Generation Demo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header + Navbar -->
+        <header class="header">
+            <div class="logo-section">
+                <div class="logo">🔐</div>
+                <h1>ShadowLogin</h1>
+                <p class="subtitle">Virtual Account Generation Demo - Advanced Edition</p>
+            </div>
+
+            <nav class="main-nav">
+                <button id="mobileMenuToggle" class="mobile-menu-btn">☰</button>
+                <ul class="nav-list">
+                    <li><a href="#homeSection" class="nav-link" data-i18n="nav.home">Home</a></li>
+                    <li><a href="#generatorSection" class="nav-link" data-i18n="nav.generator">Generator</a></li>
+                    <li><a href="#dashboardSection" class="nav-link" data-i18n="nav.dashboard">Dashboard</a></li>
+                    <li><a href="#feedbackSection" class="nav-link" data-i18n="nav.feedback">Feedback</a></li>
+                    <li><a href="#rateSection" class="nav-link" data-i18n="nav.rate">Rate Us</a></li>
+                    <li><a href="#supportSection" class="nav-link" data-i18n="nav.support">Support</a></li>
+                    <li><a href="#aboutSection" class="nav-link" data-i18n="nav.about">About Us</a></li>
+                    <li><a href="#whatWeDoSection" class="nav-link" data-i18n="nav.whatWeDo">What We Do</a></li>
+                    <li><a href="#whatsNewSection" class="nav-link" data-i18n="nav.whatsNew">What's New</a></li>
+                </ul>
+                <div class="language-selector">
+                    <button id="langRus" class="lang-btn lang-active" data-lang="ru" title="Русский">РУС</button>
+                    <button id="langKaz" class="lang-btn" data-lang="kk" title="Қазақ">КАЗ</button>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero / Home -->
+            <section id="homeSection" class="home-section">
+                <div class="home-content">
+                    <h2 data-i18n="home.title">ShadowLogin</h2>
+                    <p class="lead" data-i18n="home.desc1">ShadowLogin is an academic prototype demonstrating how temporary, privacy-focused virtual accounts can help protect personal data during testing, onboarding, or research tasks. The system generates short-lived identities that reduce linkability between services, lower exposure to tracking, and provide a safe environment for UI testing and demonstrations.</p>
+                    <p class="lead" data-i18n="home.desc2">This demo emphasizes privacy, design transparency, and educational value. It intentionally avoids connecting to any external services; all generated data is synthetic and stored locally for demonstration purposes only.</p>
+                    <div class="home-actions">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Generator -->
+            <section id="generatorSection" class="generator-section">
+                <div class="section-header"><h2 data-i18n="generator.title">Generator</h2></div>
+                <p class="section-desc" data-i18n="generator.desc">The generator produces disposable virtual accounts across multiple types. Select an account type below, tune the configuration, and generate a temporary profile. Generated accounts include optional fields (username, full name, email, phone, and avatar). Choose a country for phone formatting, set a privacy level, and select the account lifetime. These choices alter the privacy score — a demo metric indicating relative identifiability.</p>
+
+                <!-- Account Type Selection Screen -->
+                <section id="typeSelectionScreen" class="type-selection-screen">
+                <div class="type-header">
+                    <h2 data-i18n="generator.selectType">Select Account Type</h2>
+                    <p class="type-subtitle" data-i18n="generator.typeSubtitle">Choose the type of virtual account you want to generate</p>
+                </div>
+
+                <div class="type-grid">
+                    <button class="type-card" data-type="social">
+                        <div class="type-icon">👤</div>
+                        <div class="type-name" data-i18n="generator.social">Social Media Profile</div>
+                        <div class="type-desc" data-i18n="generator.socialDesc">Username, Name, Avatar, Bio</div>
+                    </button>
+
+                    <button class="type-card" data-type="email">
+                        <div class="type-icon">📧</div>
+                        <div class="type-name" data-i18n="generator.email">Email Style Account</div>
+                        <div class="type-desc" data-i18n="generator.emailDesc">Email, Password, Recovery Info</div>
+                    </button>
+
+                    <button class="type-card" data-type="website">
+                        <div class="type-icon">🌐</div>
+                        <div class="type-name" data-i18n="generator.website">Website Registration</div>
+                        <div class="type-desc" data-i18n="generator.websiteDesc">Username, Email, Full Name</div>
+                    </button>
+
+                    <button class="type-card" data-type="gaming">
+                        <div class="type-icon">🎮</div>
+                        <div class="type-name" data-i18n="generator.gaming">Gaming Profile</div>
+                        <div class="type-desc" data-i18n="generator.gamingDesc">Gamer Tag, Level, Avatar</div>
+                    </button>
+
+                    <button class="type-card" data-type="anonymous">
+                        <div class="type-icon">👻</div>
+                        <div class="type-name" data-i18n="generator.anonymous">Anonymous Profile</div>
+                        <div class="type-desc" data-i18n="generator.anonymousDesc">Minimal Data, High Privacy</div>
+                    </button>
+
+                    <button class="type-card" data-type="custom">
+                        <div class="type-icon">⚙️</div>
+                        <div class="type-name" data-i18n="generator.custom">Custom Profile</div>
+                        <div class="type-desc" data-i18n="generator.customDesc">Choose Your Own Fields</div>
+                    </button>
+                </div>
+            </section>
+
+                <!-- Configuration Panel -->
+                <section id="configurationPanel" class="configuration-panel hidden">
+                <div class="config-header">
+                    <button id="backToTypes" class="btn-icon-only" data-i18n="generator.back">← Back</button>
+                    <h2 data-i18n="generator.configTitle">Configure Account</h2>
+                    <span id="selectedTypeLabel" class="type-label" data-i18n="generator.social">Social Media Profile</span>
+                </div>
+
+                <div class="config-sections">
+                    <!-- Data Fields Selection -->
+                    <div class="config-section">
+                        <h3 data-i18n="generator.includeFields">Include Data Fields</h3>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="field-username" class="field-checkbox" checked>
+                                <span data-i18n="generator.fieldUsername">Username / Nickname</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="field-fullname" class="field-checkbox">
+                                <span data-i18n="generator.fieldFullName">Full Name (Random)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="field-email" class="field-checkbox">
+                                <span data-i18n="generator.fieldEmail">Demo Email</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="field-phone" class="field-checkbox">
+                                <span data-i18n="generator.fieldPhone">Fake Phone Number</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="field-avatar" class="field-checkbox">
+                                <span data-i18n="generator.fieldAvatar">Random Avatar</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Country & Phone Selector -->
+                    <div class="config-section">
+                        <h3 data-i18n="generator.country">Country (For Phone Formatting)</h3>
+                        <select id="countrySelect" class="select-field">
+                            <option value="us">🇺🇸 USA (+1)</option>
+                            <option value="de">🇩🇪 Germany (+49)</option>
+                            <option value="kz">🇰🇿 Kazakhstan (+7)</option>
+                            <option value="uk">🇬🇧 United Kingdom (+44)</option>
+                            <option value="fr">🇫🇷 France (+33)</option>
+                            <option value="jp">🇯🇵 Japan (+81)</option>
+                            <option value="cn">🇨🇳 China (+86)</option>
+                            <option value="ru">🇷🇺 Russia (+7)</option>
+                            <option value="in">🇮🇳 India (+91)</option>
+                            <option value="br">🇧🇷 Brazil (+55)</option>
+                        </select>
+                    </div>
+
+                    <!-- Account Lifetime -->
+                    <div class="config-section">
+                        <h3 data-i18n="generator.lifetime">Account Lifetime</h3>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="lifetime" value="5" class="lifetime-radio">
+                                <span data-i18n="generator.lifetimeOptions.five">5 minutes</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="lifetime" value="10" class="lifetime-radio" checked>
+                                <span data-i18n="generator.lifetimeOptions.ten">10 minutes</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="lifetime" value="30" class="lifetime-radio">
+                                <span data-i18n="generator.lifetimeOptions.thirty">30 minutes</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="lifetime" value="60" class="lifetime-radio">
+                                <span data-i18n="generator.lifetimeOptions.hour">1 hour</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Anonymity Level -->
+                    <div class="config-section">
+                        <h3 data-i18n="generator.privacy">Privacy Level</h3>
+                        <div class="privacy-levels">
+                            <label class="privacy-label">
+                                <input type="radio" name="privacy" value="basic" class="privacy-radio" checked>
+                                <div class="privacy-option">
+                                    <div class="privacy-name" data-i18n="generator.privacyOptions.basic">Basic</div>
+                                    <div class="privacy-desc" data-i18n="generator.privacyOptions.basicDesc">Standard profile data</div>
+                                </div>
+                            </label>
+                            <label class="privacy-label">
+                                <input type="radio" name="privacy" value="medium" class="privacy-radio">
+                                <div class="privacy-option">
+                                    <div class="privacy-name" data-i18n="generator.privacyOptions.medium">Medium</div>
+                                    <div class="privacy-desc" data-i18n="generator.privacyOptions.mediumDesc">Limited personal data</div>
+                                </div>
+                            </label>
+                            <label class="privacy-label">
+                                <input type="radio" name="privacy" value="full" class="privacy-radio">
+                                <div class="privacy-option">
+                                    <div class="privacy-name" data-i18n="generator.privacyOptions.full">Full Anonymous</div>
+                                    <div class="privacy-desc" data-i18n="generator.privacyOptions.fullDesc">Minimal data only</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Privacy Score -->
+                    <div class="privacy-score">
+                        <div class="score-label" data-i18n="generator.score">Privacy Score</div>
+                        <div class="score-bar">
+                            <div id="privacyScoreBar" class="score-fill" style="width: 30%"></div>
+                        </div>
+                        <div id="privacyScoreText" class="score-text">30% - More Private</div>
+                    </div>
+                </div>
+
+                <div class="config-buttons">
+                    <button id="generateBtn" class="btn btn-primary">
+                        <span class="btn-icon">✨</span>
+                        <span data-i18n="generator.generate">Generate Virtual Account</span>
+                    </button>
+                </div>
+
+                <!-- Status Message -->
+                <div id="statusMessage" class="status-message"></div>
+            </section>
+
+            <!-- Generated Account Display -->
+            <section id="accountDisplaySection" class="account-display-section hidden">
+                <div id="accountDisplay" class="account-card-large">
+                    <div class="account-card-header">
+                        <h3 data-i18n="generator.success">Account Created Successfully</h3>
+                    </div>
+                    <div class="account-card-content">
+                        <div class="avatar-section">
+                            <div id="displayAvatar" class="avatar-display">👤</div>
+                        </div>
+                        <div class="account-details">
+                            <div id="detailsContainer"></div>
+                        </div>
+                    </div>
+                    <div class="account-card-footer">
+                        <button id="copyAllBtn" class="btn btn-secondary">
+                            <span>📋 <span data-i18n="dashboard.accountDisplay.copyAll">Copy All</span></span>
+                        </button>
+                        <button id="deactivateBtn" class="btn btn-danger">
+                            <span>🔴 <span data-i18n="dashboard.accountDisplay.deactivate">Deactivate</span></span>
+                        </button>
+                        <button id="shareBtn" class="btn btn-secondary">
+                            <span>🔗 <span data-i18n="dashboard.accountDisplay.share">Share</span></span>
+                        </button>
+                        <button id="generateAnotherBtn" class="btn btn-primary">
+                            <span>✨ <span data-i18n="dashboard.accountDisplay.generateAnother">Generate Another</span></span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Feedback / Pages (hidden by default) -->
+            <section id="feedbackSection" class="page-section">
+                <div class="section-header"><h2 data-i18n="feedback.title">Feedback</h2></div>
+                <p class="section-desc" data-i18n="feedback.desc">Feedback helps improve the prototype. This demo feedback form collects impressions and suggested improvements — the data is stored locally for demonstration only.</p>
+                <form id="feedbackForm" class="demo-form">
+                    <label data-i18n="feedback.name">Name</label>
+                    <input type="text" id="feedbackName" placeholder="Your name (demo)" class="form-input" data-i18n-placeholder="feedback.namePlaceholder">
+                    <label data-i18n="feedback.email">Your email (demo)</label>
+                    <input type="email" id="feedbackEmail" placeholder="you@example.com" class="form-input" data-i18n-placeholder="feedback.emailPlaceholder">
+                    <label data-i18n="feedback.message">Your feedback</label>
+                    <textarea id="feedbackText" rows="5" placeholder="Tell us what you think" class="form-textarea" data-i18n-placeholder="feedback.messagePlaceholder"></textarea>
+                    <button type="submit" class="btn btn-primary" data-i18n="feedback.send">Send Feedback (Demo)</button>
+                </form>
+            </section>
+
+            <section id="rateSection" class="page-section">
+                <div class="section-header"><h2 data-i18n="rate.title">Rate Us</h2></div>
+                <p class="section-desc" data-i18n="rate.desc">Ratings provide a lightweight signal of user satisfaction. In this demo, ratings are saved locally and used only to illustrate feedback loops in product design.</p>
+                <div class="star-rating" id="starRating">
+                    <button class="star" data-value="1">★</button>
+                    <button class="star" data-value="2">★</button>
+                    <button class="star" data-value="3">★</button>
+                    <button class="star" data-value="4">★</button>
+                    <button class="star" data-value="5">★</button>
+                </div>
+                <div id="ratingResult" class="rating-result" data-i18n="rate.thanks">Thanks for rating (demo)</div>
+            </section>
+
+            <section id="supportSection" class="page-section">
+                <div class="section-header"><h2 data-i18n="support.title">Customer Support (Demo)</h2></div>
+                <p class="section-desc" data-i18n="support.desc">This demo chat interface simulates a support channel where users can ask questions about ShadowLogin usage. All messages remain local and the bot replies with canned, educational responses.</p>
+                <div id="chatWindow" class="chat-window">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="chat-bot" data-i18n="support.hello">Hello! This is a demo support bot. How can I help?</div>
+                    </div>
+                    <div class="chat-input">
+                        <input id="chatInputField" placeholder="Type a message (demo)" class="form-input">
+                        <button id="chatSendBtn" class="btn btn-primary" data-i18n="support.send">Send</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Share Modal -->
+            <div id="shareModal" class="modal hidden">
+                <div class="modal-content">
+                    <h3>Share Account (Demo)</h3>
+                    <textarea id="shareText" rows="6"></textarea>
+                    <div class="modal-actions">
+                        <button id="shareCopyBtn" class="btn btn-primary">Copy</button>
+                        <button id="shareCloseBtn" class="btn btn-secondary">Close</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Section -->
+            <section id="dashboardSection" class="dashboard-section">
+                <div class="section-header">
+                    <h2 data-i18n="dashboard.title">Dashboard</h2>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-label" data-i18n="dashboard.total">Total Accounts</div>
+                        <div id="totalAccounts" class="stat-value">0</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-label" data-i18n="dashboard.active">Active Accounts</div>
+                        <div id="activeAccounts" class="stat-value">0</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">⏰</div>
+                        <div class="stat-label" data-i18n="dashboard.expired">Expired Accounts</div>
+                        <div id="expiredAccounts" class="stat-value">0</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">🔒</div>
+                        <div class="stat-label" data-i18n="dashboard.privacy">Privacy Score</div>
+                        <div id="avgPrivacyScore" class="stat-value">0%</div>
+                    </div>
+                </div>
+
+                <!-- Accounts List -->
+                <div class="accounts-list-header">
+                    <h3 data-i18n="dashboard.generated">Generated Accounts</h3>
+                    <button id="clearBtn" class="btn btn-secondary" data-i18n="dashboard.clearAll">Clear All</button>
+                </div>
+
+                <div id="accountsList" class="accounts-list">
+                    <div class="empty-state">
+                        <p data-i18n="dashboard.noAccounts">📭 No accounts</p>
+                        <p class="empty-hint" data-i18n="dashboard.noHint">Generate your first account to get started</p>
+                    </div>
+                </div>
+
+                <!-- Activity Log -->
+                <div class="activity-log-section">
+                    <h3 data-i18n="dashboard.activity">Activity Log</h3>
+                    <div id="activityLog" class="activity-log">
+                        <div class="activity-empty">No activity yet</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Feedback -->
+            <section id="feedbackSection" class="page-section">
+                <div class="section-header"><h2>Feedback</h2></div>
+                <p class="section-desc">Feedback helps improve the prototype. This demo feedback form collects impressions and suggested improvements — the data is stored locally for demonstration only.</p>
+                <form id="feedbackForm" class="demo-form">
+                    <label>Name</label>
+                    <input type="text" id="feedbackName" placeholder="Your name (demo)">
+                    <label>Your email (demo)</label>
+                    <input type="email" id="feedbackEmail" placeholder="you@example.com">
+                    <label>Your feedback</label>
+                    <textarea id="feedbackText" rows="4" placeholder="Tell us what you think"></textarea>
+                    <button type="submit" class="btn btn-primary">Send Feedback (Demo)</button>
+                </form>
+            </section>
+
+            <!-- Rate Us -->
+            <section id="rateSection" class="page-section">
+                <div class="section-header"><h2 data-i18n="rate.title">Rate Us</h2></div>
+                <p class="section-desc" data-i18n="rate.desc">Ratings provide a lightweight signal of user satisfaction. In this demo, ratings are saved locally and used only to illustrate feedback loops in product design.</p>
+                <div class="star-rating" id="starRating">
+                    <button class="star" data-value="1">★</button>
+                    <button class="star" data-value="2">★</button>
+                    <button class="star" data-value="3">★</button>
+                    <button class="star" data-value="4">★</button>
+                    <button class="star" data-value="5">★</button>
+                </div>
+                <div id="ratingResult" class="rating-result" data-i18n="rate.thanks">Thanks for rating (demo)</div>
+            </section>
+
+            <!-- Support -->
+            <section id="supportSection" class="page-section">
+                <div class="section-header"><h2 data-i18n="support.title">Customer Support (Demo)</h2></div>
+                <p class="section-desc" data-i18n="support.desc">This demo chat interface simulates a support channel where users can ask questions about ShadowLogin usage. All messages remain local and the bot replies with canned, educational responses.</p>
+                <div id="chatWindow" class="chat-window">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="chat-bot" data-i18n="support.hello">Hello! This is a demo support bot. How can I help?</div>
+                    </div>
+                    <div class="chat-input">
+                        <input id="chatInputField" placeholder="Type a message (demo)" data-i18n-placeholder="support.placeholder" class="form-input">
+                        <button id="chatSendBtn" class="btn btn-primary" data-i18n="support.send">Send</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Us -->
+            <section id="aboutSection" class="page-section">
+                <div class="section-header"><h2 data-i18n="about.title">About Us</h2></div>
+                <p class="section-desc" data-i18n="about.desc1">ShadowLogin was created as an academic prototype by students and researchers focused on privacy-preserving demonstrations. The primary goal is to showcase how temporary virtual accounts can be instrumented to support UX testing and privacy education without exposing real user data.</p>
+                <p data-i18n="about.desc2">Instructors and reviewers should note this is intentionally isolated from real authentication systems; it illustrates design patterns not production deployment.</p>
+            </section>
+
+            <!-- What We Do -->
+            <section id="whatWeDoSection" class="page-section">
+                <div class="section-header"><h2 data-i18n="whatWeDo.title">What We Do</h2></div>
+                <p class="section-desc" data-i18n="whatWeDo.desc">ShadowLogin demonstrates several features relevant to privacy-first prototypes:</p>
+                <ul>
+                    <li data-i18n="whatWeDo.feature1">Generate temporary accounts with selectable fields.</li>
+                    <li data-i18n="whatWeDo.feature2">Adjust privacy level and observe a demo privacy score.</li>
+                    <li data-i18n="whatWeDo.feature3">Track lifecycle with dashboard statistics and activity logs.</li>
+                    <li data-i18n="whatWeDo.feature4">Share or deactivate demo accounts as part of testing workflows.</li>
+                    <li data-i18n="whatWeDo.feature5">Collect feedback and ratings locally for evaluation.</li>
+                </ul>
+            </section>
+
+            <!-- What's New -->
+            <section id="whatsNewSection" class="page-section">
+                <div class="section-header"><h2 data-i18n="whatsNew.title">What's New</h2></div>
+                <p class="section-desc" data-i18n="whatsNew.desc">Recent updates in this Advanced Edition include multi-type account generation, an improved dashboard, mobile responsiveness, demo chat, and enhanced privacy scoring. These changes deepen the educational value and make the demo suitable for presentation environments.</p>
+                <ul>
+                    <li data-i18n="whatsNew.update1">Multi-type account generation (Social, Email, Website, Gaming, Anonymous, Custom)</li>
+                    <li data-i18n="whatsNew.update2">Persistent local storage and lifecycle management</li>
+                    <li data-i18n="whatsNew.update3">Privacy score and visual indicators</li>
+                    <li data-i18n="whatsNew.update4">Share & deactivate actions</li>
+                    <li data-i18n="whatsNew.update5">Responsive, mobile-first UI with sticky navigation</li>
+                </ul>
+            </section>
+
+            <!-- UI & General Requirements -->
+            <section id="uiSection" class="page-section">
+                <div class="section-header"><h2 data-i18n="ui.title">UI & General Requirements</h2></div>
+                <p class="section-desc" data-i18n="ui.desc">This demo follows a mobile-first, dark cybersecurity theme. Navigation is sticky and uses smooth scroll with active section highlighting. Animations are subtle and designed to draw attention to lifecycle events (account generation and expiration) without being distracting. The prototype purposefully avoids external integrations — it is an isolated academic demonstration.</p>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>ShadowLogin © 2026 - Academic Graduation Demo Project (Advanced Edition)</p>
+        </footer>
+    </div>
+
+    <script src="i18n.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
