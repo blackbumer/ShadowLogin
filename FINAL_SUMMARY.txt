@@ -2,7 +2,7 @@
 ║                                                                              ║
 ║                  ✅ SHADOWLOGIN PROJECT - COMPLETE & READY ✅                  ║
 ║                                                                              ║
-║                   Virtual Account Generation Demo v1.0                      ║
+║                   Virtual Account Generation v1.0                      ║
 ║                        Academic Graduation Project                          ║
 ║                                                                              ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
@@ -51,7 +51,7 @@ RESPONSIVE DESIGN
 
 ACCOUNT GENERATION
   ✓ Random username (shadow_ABC123123)
-  ✓ Demo email (temp123@shadowlogin.demo)
+  ✓ email (temp123@shadowlogin.demo)
   ✓ Unique identifiers
   ✓ Instant generation
   ✓ Batch support
@@ -99,7 +99,7 @@ DOCUMENTATION
   $ npm start
   → Open http://localhost:3000
 
-Done! Your ShadowLogin demo is running.
+Done! Your ShadowLogin is running.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 📖 WHERE TO START
@@ -120,7 +120,7 @@ Done! Your ShadowLogin demo is running.
   
   Development Time:      Professional-grade
   Setup Time:            2 minutes
-  Demo Duration:         5-10 minutes
+  Duration:         5-10 minutes
   
   Browser Support:       100% modern browsers
   Device Support:        100% responsive
@@ -143,7 +143,7 @@ Done! Your ShadowLogin demo is running.
   ✓ Safe Simulation Only (No real system bypass)
   ✓ Educational Focus (Clear academic purpose)
   ✓ No External Connections (Fully isolated)
-  ✓ No Sensitive Data (Demo data only)
+  ✓ No Sensitive Data (data only)
   ✓ Proper Licensing (MIT + disclaimer)
   ✓ Documented Safety (Clear in README)
   ✓ Automatic Expiration (Temporary data)

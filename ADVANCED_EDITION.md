@@ -23,7 +23,7 @@ Before generating, users can configure:
 **Data Fields Selection:**
 - ✓ Username / Nickname
 - ✓ Full Name (randomly generated)
-- ✓ Demo Email
+- ✓ Email
 - ✓ Fake Phone Number
 - ✓ Random Avatar
 
@@ -192,7 +192,7 @@ Alex Smith | Jordan Williams | Morgan Garcia
     type: "social",
     username: "shadow_XYZ789",
     fullname: "Alex Johnson",
-    email: "temp789@shadowlogin.demo",
+    email: "temp789@shadowlogin",
     phone: "+1 234-567-8901",
     avatar: "👨",
     gamerTag: null,
@@ -241,7 +241,7 @@ Alex Smith | Jordan Williams | Morgan Garcia
 2. System creates account with:
    - Random username (if selected)
    - Random full name (if selected)
-   - Demo email (if selected)
+   - email (if selected)
    - Fake phone number (if selected)
    - Random avatar (if selected)
    - Privacy score (based on fields selected)
@@ -464,7 +464,7 @@ Your ShadowLogin Advanced Edition is ready with:
 - ✅ Activity logging
 - ✅ Enhanced UI/UX
 - ✅ Responsive design
-- ✅ Impressive demo features
+- ✅ Impressive features
 
 **Go show your graduation committee what you built! 🎓**
 

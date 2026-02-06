@@ -302,7 +302,7 @@ function generateAccount() {
     const randomNumbers = Math.floor(Math.random() * 900) + 100;
     
     const username = `shadow_${randomString}${randomNumbers}`;
-    const email = `temp${randomNumbers}@shadowlogin.demo`;
+    const email = `temp${randomNumbers}@shadowlogin`;
     const createdAt = new Date();
     const expiresAt = new Date(createdAt.getTime() + 10 * 60 * 1000); // 10 minutes
     
@@ -340,7 +340,7 @@ initializeDatabase();
 const server = app.listen(PORT, () => {
     console.log(`
 ╔════════════════════════════════════════════════════════╗
-║        ShadowLogin - Virtual Account Demo              ║
+║        ShadowLogin - Virtual Account              ║
 ║              Academic Graduation Project               ║
 ╚════════════════════════════════════════════════════════╝
 

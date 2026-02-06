@@ -32,7 +32,7 @@
 {
   id: "abc123def45",              // Unique identifier
   username: "shadow_ABC123123",   // Random username
-  email: "temp123@shadowlogin.demo", // Demo email
+  email: "temp123@shadowlogin.demo", // email
   createdAt: "2026-02-05T10:30:00.000Z",
   expiresAt: "2026-02-05T10:40:00.000Z",
   status: "active"                // Active or Expired
@@ -47,7 +47,7 @@
 **Email Generation:**
 - Format: `temp[3_DIGIT_NUMBER]@shadowlogin.demo`
 - Example: `temp789@shadowlogin.demo`
-- Domain is clearly a demo address
+- Domain is clearly a address
 
 ### Expiration Timer
 - **Duration**: 10 minutes (600 seconds)
@@ -104,7 +104,7 @@
 
 ✓ **Educational clarity**
 - Clear disclaimer section
-- Warning notices about demo nature
+- Warning notices about nature
 - License file included
 - Security notes in documentation
 
@@ -184,7 +184,7 @@
 
 ## 🔐 Data Security Notes
 
-**What This Demo Does NOT Do:**
+**What This Does NOT Do:**
 - ❌ Does NOT create real user accounts
 - ❌ Does NOT bypass authentication systems
 - ❌ Does NOT access external APIs
@@ -192,7 +192,7 @@
 - ❌ Does NOT transmit data to servers
 - ❌ Does NOT provide real access to anything
 
-**What This Demo DOES Do:**
+**What This DOES Do:**
 - ✓ Generates random account identifiers
 - ✓ Demonstrates UI/UX patterns
 - ✓ Shows expiration management

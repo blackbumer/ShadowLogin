@@ -170,7 +170,7 @@ calculatePrivacyScore(fields, level)
     type: "social",           // Account type
     username: "shadow_ABC123",
     fullname: "Alex Johnson",
-    email: "temp123@demo",
+    email: "temp123@shadowlogin",
     phone: "+1 234-567-8901",
     avatar: "👨",
     privacyScore: 65,         // Calculated
@@ -239,8 +239,8 @@ Each country has proper phone number formatting!
 ## ⏱️ Lifetime Options
 
 ```
-⏱️ 5 minutes  - Quick demo accounts
-⏱️ 10 minutes - Default, good for demos
+⏱️ 5 minutes  - Quick accounts
+⏱️ 10 minutes - Default, good
 ⏱️ 30 minutes - Longer testing
 ⏱️ 1 hour     - Extended use
 ```

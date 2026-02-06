@@ -165,10 +165,10 @@ function setupEventListeners() {
         document.getElementById('shareModal').classList.add('hidden');
     });
 
-    // Feedback form (demo)
+    // Feedback form 
     document.getElementById('feedbackForm')?.addEventListener('submit', (e) => {
         e.preventDefault();
-        showStatus('✓ Feedback submitted (demo)', 'success');
+        showStatus('✓ Feedback submitted', 'success');
     });
 
     // Star rating demo
@@ -176,7 +176,7 @@ function setupEventListeners() {
         const star = e.target.closest('.star');
         if (!star) return;
         const value = star.dataset.value;
-        document.getElementById('ratingResult').textContent = `Thanks! You rated ${value} stars (demo)`;
+        document.getElementById('ratingResult').textContent = `Thanks! You rated ${value} stars `;
     });
 
     // Chat demo
@@ -193,7 +193,7 @@ function setupEventListeners() {
         setTimeout(() => {
             const bot = document.createElement('div');
             bot.className = 'chat-bot';
-            bot.textContent = 'This is a demo reply. For live support, please contact the team.';
+            bot.textContent = 'This is a reply. For live support, please contact the team.';
             container.appendChild(bot);
         }, 800);
     });
@@ -387,7 +387,7 @@ function generateAccountData(type, selectedFields, lifetime, privacyLevel, count
         type,
         username: selectedFields.includes('username') ? `shadow_${randomString}${randomNumbers}` : null,
         fullname: selectedFields.includes('fullname') ? generateRandomName() : null,
-        email: selectedFields.includes('email') ? `temp${randomNumbers}@shadowlogin.demo` : null,
+        email: selectedFields.includes('email') ? `temp${randomNumbers}@shadowlogin` : null,
         phone: selectedFields.includes('phone') ? generatePhoneNumber(country) : null,
         avatar: selectedFields.includes('avatar') ? generateRandomAvatar() : null,
         gamerTag: type === 'gaming' && selectedFields.includes('username') ? `Gamer_${randomNumbers}` : null,
@@ -822,7 +822,7 @@ function deactivateAccountById(id) {
         addActivityLog(`Account deactivated: ${acc.username || acc.id}`);
         updateDashboard();
         renderAccountsList();
-        showStatus('Account deactivated (demo).', 'info');
+        showStatus('Account deactivated .', 'info');
     }
 }
 

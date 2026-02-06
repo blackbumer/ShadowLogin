@@ -74,7 +74,7 @@ firefox http://localhost:3000 &
 ### Introduction (30 seconds)
 "ShadowLogin is an academic demonstration of virtual account generation with a focus on responsive design and modern UI/UX."
 
-### Feature Demo (3-5 minutes)
+### Feature (3-5 minutes)
 
 1. **Generate Virtual Account** (1 min)
    - Click the "Generate Virtual Account" button
@@ -213,7 +213,7 @@ npm start
 
 ---
 
-## 🎬 Demo Script
+## 🎬 Script
 
 ### 5-Minute Demo
 ```
@@ -302,7 +302,7 @@ Store these as backup in case of technical issues.
 
 ---
 
-## 🎓 Graduation Demo Context
+## 🎓 Graduation Context
 
 ### Frame the Project
 "This is a full-stack web application demonstration showing:
@@ -360,7 +360,7 @@ curl http://localhost:3000/api/health
 You're all set for a successful presentation! Remember:
 - Stay calm and confident
 - Know your code
-- Practice the demo beforehand
+- Practice the beforehand
 - Have fun explaining your project
 - Be ready for Q&A
 

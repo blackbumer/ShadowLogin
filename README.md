@@ -1,15 +1,15 @@
-# ShadowLogin - Virtual Account Generation Demo
+# ShadowLogin - Virtual Account Generation
 
 An academic graduation project demonstrating a **safe simulation** of virtual account generation with a responsive design.
 
-> ⚠️ **Important**: This is an educational demo only. It does NOT bypass real authentication systems, does NOT connect to external services, and does NOT perform any actual security operations.
+> ⚠️ **Important**: This is an educational only. It does NOT bypass real authentication systems, does NOT connect to external services, and does NOT perform any actual security operations.
 
 ## Features
 
 ✨ **Core Features:**
 - Mobile-first responsive design (desktop & mobile friendly)
 - Generate virtual accounts with random usernames
-- Demo email generation (temp@shadowlogin.demo)
+- email generation (temp@shadowlogin)
 - Account expiration timer (10 minutes)
 - Active/Expired status tracking
 - Dark theme UI (Shadow style)
@@ -89,7 +89,7 @@ ShadowLogin/
 - **Generation Panel**: Button to generate new accounts
 - **Account Display**: Shows last generated account details with copy-to-clipboard
 - **Accounts List**: Grid of all active accounts with status badges
-- **Info Section**: Educational disclaimer about the demo
+- **Info Section**: Educational disclaimer about the
 - **Footer**: Project information
 
 ### Responsive Design
@@ -127,7 +127,7 @@ All endpoints return JSON responses with `success` and `message` fields.
 {
   "id": "abc123def45",
   "username": "shadow_ABC123123",
-  "email": "temp123@shadowlogin.demo",
+  "email": "temp123@shadowlogin",
   "createdAt": "2026-02-05T10:30:00.000Z",
   "expiresAt": "2026-02-05T10:40:00.000Z",
   "status": "active"
@@ -153,8 +153,8 @@ All endpoints return JSON responses with `success` and `message` fields.
 Generates accounts with:
 - **Username Format**: `shadow_[RANDOM_STRING][RANDOM_NUMBERS]`
   - Example: `shadow_ABC123123`
-- **Email Format**: `temp[NUMBERS]@shadowlogin.demo`
-  - Example: `temp123@shadowlogin.demo`
+- **Email Format**: `temp[NUMBERS]@shadowlogin`
+  - Example: `temp123@shadowlogin`
 - **Expiration**: 10 minutes from creation
 - **Unique IDs**: Random string identifiers
 
@@ -255,7 +255,7 @@ MIT License - See LICENSE file for details
 
 ## Author
 
-Academic Graduation Demo Project
+Academic Graduation Project
 Created: February 2026
 
 ---

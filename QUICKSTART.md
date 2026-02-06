@@ -36,7 +36,7 @@ Click the link or go to: **http://localhost:3000**
 |---------|---------|
 | **Generation** | Click to create random virtual accounts |
 | **Username** | Format: `shadow_ABC123123` |
-| **Email** | Format: `temp123@shadowlogin.demo` |
+| **Email** | Format: `temp123@shadowlogin` |
 | **Timer** | 10 minutes expiration countdown |
 | **Status** | Active (green) / Expired (red) |
 | **Storage** | Browser localStorage (persists on refresh) |
