@@ -1,460 +1,797 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShadowLogin - Virtual Account Generation Demo</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <!-- Header + Navbar -->
-        <header class="header">
-            <div class="logo-section">
-                <div class="logo">🔐</div>
-                <h1>ShadowLogin</h1>
-                <p class="subtitle">Virtual Account Generation Demo - Advanced Edition</p>
+<html lang="en" data-dme-installation-id="xwaxjjxckj" data-dme="on" data-dme-dark-mode="off">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            body {
+                transition: opacity ease-in 0.2s;
+            }
+
+            body[unresolved] {
+                opacity: 0;
+                display: block;
+                overflow: hidden;
+                position: relative;
+            }
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+        <meta property="og:title" content="Abai Qunanbaiuly - The Great Kazakh Poet">
+        <meta property="og:description" content="Explore the life, philosophy, and poetry of Abai Qunanbaiuly, a cultural reformer and the father of Kazakh literature.">
+        <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Abai Qunanbaiuly - The Great Kazakh Poet">
+        <meta name="twitter:description" content="Explore the life, philosophy, and poetry of Abai Qunanbaiuly, a cultural reformer and the father of Kazakh literature.">
+        <link rel="icon" type="image/png" href="127.0.0.1:8000/static/abai-muse/favicon.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com/">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+        <link href="127.0.0.1_files/css2" rel="stylesheet">
+        <script>
+            (function() {
+                var target = '/';
+                if (location.pathname !== target) {
+                    history.replaceState(null, '', target + location.search + location.hash);
+                }
+            }
+            )();
+        </script>
+        <script type="module" src="127.0.0.1_files/index-Dv4_u_pz.js"></script>
+        <link rel="stylesheet" href="127.0.0.1_files/index-BlFxgXNz.css">
+    </head>
+    <body style="overflow: unset;">
+        <div id="root">
+            <div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;">
+                <ol tabindex="-1" class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]"></ol>
             </div>
-
-            <nav class="main-nav">
-                <button id="mobileMenuToggle" class="mobile-menu-btn">☰</button>
-                <ul class="nav-list">
-                    <li><a href="#homeSection" class="nav-link" data-i18n="nav.home">Home</a></li>
-                    <li><a href="#generatorSection" class="nav-link" data-i18n="nav.generator">Generator</a></li>
-                    <li><a href="#dashboardSection" class="nav-link" data-i18n="nav.dashboard">Dashboard</a></li>
-                    <li><a href="#feedbackSection" class="nav-link" data-i18n="nav.feedback">Feedback</a></li>
-                    <li><a href="#rateSection" class="nav-link" data-i18n="nav.rate">Rate Us</a></li>
-                    <li><a href="#supportSection" class="nav-link" data-i18n="nav.support">Support</a></li>
-                    <li><a href="#aboutSection" class="nav-link" data-i18n="nav.about">About Us</a></li>
-                    <li><a href="#whatWeDoSection" class="nav-link" data-i18n="nav.whatWeDo">What We Do</a></li>
-                    <li><a href="#whatsNewSection" class="nav-link" data-i18n="nav.whatsNew">What's New</a></li>
-                </ul>
-                <div class="language-selector">
-                    <button id="langRus" class="lang-btn lang-active" data-lang="ru" title="Русский">РУС</button>
-                    <button id="langKaz" class="lang-btn" data-lang="kk" title="Қазақ">КАЗ</button>
-                </div>
-            </nav>
-        </header>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Hero / Home -->
-            <section id="homeSection" class="home-section">
-                <div class="home-content">
-                    <h2 data-i18n="home.title">ShadowLogin</h2>
-                    <p class="lead" data-i18n="home.desc1">ShadowLogin is an academic prototype demonstrating how temporary, privacy-focused virtual accounts can help protect personal data during testing, onboarding, or research tasks. The system generates short-lived identities that reduce linkability between services, lower exposure to tracking, and provide a safe environment for UI testing and demonstrations.</p>
-                    <p class="lead" data-i18n="home.desc2">This demo emphasizes privacy, design transparency, and educational value. It intentionally avoids connecting to any external services; all generated data is synthetic and stored locally for demonstration purposes only.</p>
-                    <div class="home-actions">
-                    </div>
-                </div>
-            </section>
-
-            <!-- Generator -->
-            <section id="generatorSection" class="generator-section">
-                <div class="section-header"><h2 data-i18n="generator.title">Generator</h2></div>
-                <p class="section-desc" data-i18n="generator.desc">The generator produces disposable virtual accounts across multiple types. Select an account type below, tune the configuration, and generate a temporary profile. Generated accounts include optional fields (username, full name, email, phone, and avatar). Choose a country for phone formatting, set a privacy level, and select the account lifetime. These choices alter the privacy score — a demo metric indicating relative identifiability.</p>
-
-                <!-- Account Type Selection Screen -->
-                <section id="typeSelectionScreen" class="type-selection-screen">
-                <div class="type-header">
-                    <h2 data-i18n="generator.selectType">Select Account Type</h2>
-                    <p class="type-subtitle" data-i18n="generator.typeSubtitle">Choose the type of virtual account you want to generate</p>
-                </div>
-
-                <div class="type-grid">
-                    <button class="type-card" data-type="social">
-                        <div class="type-icon">👤</div>
-                        <div class="type-name" data-i18n="generator.social">Social Media Profile</div>
-                        <div class="type-desc" data-i18n="generator.socialDesc">Username, Name, Avatar, Bio</div>
-                    </button>
-
-                    <button class="type-card" data-type="email">
-                        <div class="type-icon">📧</div>
-                        <div class="type-name" data-i18n="generator.email">Email Style Account</div>
-                        <div class="type-desc" data-i18n="generator.emailDesc">Email, Password, Recovery Info</div>
-                    </button>
-
-                    <button class="type-card" data-type="website">
-                        <div class="type-icon">🌐</div>
-                        <div class="type-name" data-i18n="generator.website">Website Registration</div>
-                        <div class="type-desc" data-i18n="generator.websiteDesc">Username, Email, Full Name</div>
-                    </button>
-
-                    <button class="type-card" data-type="gaming">
-                        <div class="type-icon">🎮</div>
-                        <div class="type-name" data-i18n="generator.gaming">Gaming Profile</div>
-                        <div class="type-desc" data-i18n="generator.gamingDesc">Gamer Tag, Level, Avatar</div>
-                    </button>
-
-                    <button class="type-card" data-type="anonymous">
-                        <div class="type-icon">👻</div>
-                        <div class="type-name" data-i18n="generator.anonymous">Anonymous Profile</div>
-                        <div class="type-desc" data-i18n="generator.anonymousDesc">Minimal Data, High Privacy</div>
-                    </button>
-
-                    <button class="type-card" data-type="custom">
-                        <div class="type-icon">⚙️</div>
-                        <div class="type-name" data-i18n="generator.custom">Custom Profile</div>
-                        <div class="type-desc" data-i18n="generator.customDesc">Choose Your Own Fields</div>
-                    </button>
-                </div>
-            </section>
-
-                <!-- Configuration Panel -->
-                <section id="configurationPanel" class="configuration-panel hidden">
-                <div class="config-header">
-                    <button id="backToTypes" class="btn-icon-only" data-i18n="generator.back">← Back</button>
-                    <h2 data-i18n="generator.configTitle">Configure Account</h2>
-                    <span id="selectedTypeLabel" class="type-label" data-i18n="generator.social">Social Media Profile</span>
-                </div>
-
-                <div class="config-sections">
-                    <!-- Data Fields Selection -->
-                    <div class="config-section">
-                        <h3 data-i18n="generator.includeFields">Include Data Fields</h3>
-                        <div class="checkbox-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="field-username" class="field-checkbox" checked>
-                                <span data-i18n="generator.fieldUsername">Username / Nickname</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="field-fullname" class="field-checkbox">
-                                <span data-i18n="generator.fieldFullName">Full Name (Random)</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="field-email" class="field-checkbox">
-                                <span data-i18n="generator.fieldEmail">Demo Email</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="field-phone" class="field-checkbox">
-                                <span data-i18n="generator.fieldPhone">Fake Phone Number</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="field-avatar" class="field-checkbox">
-                                <span data-i18n="generator.fieldAvatar">Random Avatar</span>
-                            </label>
+            <div class="min-h-screen bg-background font-sans selection:bg-primary/20">
+                <nav class="fixed top-0 w-full z-[9999] bg-white border-b border-gray-200 h-20">
+                    <div class="container mx-auto px-6 h-full flex items-center justify-between">
+                        <a href="/">
+                            <a class="z-[10001]">
+                                <img alt="Logo" class="h-12 w-12 rounded-full object-cover" src="data:image/png;base64,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">
+                            </a>
+                        </a>
+                        <div class="hidden md:flex items-center gap-8">
+                            <a href="/tolyq_adam/" class="text-sm font-medium hover:text-primary uppercase tracking-tighter">Толық Адам</a>
+                            <a href="/#biography" class="text-sm font-medium hover:text-primary uppercase tracking-tighter">Өмірбаяны</a>
+                            <a href="/book-of-words/" class="text-sm font-medium hover:text-primary uppercase tracking-tighter">Қара сөздер</a>
+                            <a href="/#poetry" class="text-sm font-medium hover:text-primary uppercase tracking-tighter">Өлеңдер</a>
+                            <a href="/#abai_tanu" class="text-sm font-medium hover:text-primary uppercase tracking-tighter">Абайтану</a>
+                            <a href="/iran-gaiyp/" class="text-sm font-medium hover:text-primary uppercase tracking-tighter">Иран-Ғайып</a>
+                            <a href="/tests/" class="text-sm font-medium hover:text-primary uppercase tracking-tighter">Тест</a>
                         </div>
-                    </div>
-
-                    <!-- Country & Phone Selector -->
-                    <div class="config-section">
-                        <h3 data-i18n="generator.country">Country (For Phone Formatting)</h3>
-                        <select id="countrySelect" class="select-field">
-                            <option value="us">🇺🇸 USA (+1)</option>
-                            <option value="de">🇩🇪 Germany (+49)</option>
-                            <option value="kz">🇰🇿 Kazakhstan (+7)</option>
-                            <option value="uk">🇬🇧 United Kingdom (+44)</option>
-                            <option value="fr">🇫🇷 France (+33)</option>
-                            <option value="jp">🇯🇵 Japan (+81)</option>
-                            <option value="cn">🇨🇳 China (+86)</option>
-                            <option value="ru">🇷🇺 Russia (+7)</option>
-                            <option value="in">🇮🇳 India (+91)</option>
-                            <option value="br">🇧🇷 Brazil (+55)</option>
-                        </select>
-                    </div>
-
-                    <!-- Account Lifetime -->
-                    <div class="config-section">
-                        <h3 data-i18n="generator.lifetime">Account Lifetime</h3>
-                        <div class="radio-group">
-                            <label class="radio-label">
-                                <input type="radio" name="lifetime" value="5" class="lifetime-radio">
-                                <span data-i18n="generator.lifetimeOptions.five">5 minutes</span>
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="lifetime" value="10" class="lifetime-radio" checked>
-                                <span data-i18n="generator.lifetimeOptions.ten">10 minutes</span>
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="lifetime" value="30" class="lifetime-radio">
-                                <span data-i18n="generator.lifetimeOptions.thirty">30 minutes</span>
-                            </label>
-                            <label class="radio-label">
-                                <input type="radio" name="lifetime" value="60" class="lifetime-radio">
-                                <span data-i18n="generator.lifetimeOptions.hour">1 hour</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Anonymity Level -->
-                    <div class="config-section">
-                        <h3 data-i18n="generator.privacy">Privacy Level</h3>
-                        <div class="privacy-levels">
-                            <label class="privacy-label">
-                                <input type="radio" name="privacy" value="basic" class="privacy-radio" checked>
-                                <div class="privacy-option">
-                                    <div class="privacy-name" data-i18n="generator.privacyOptions.basic">Basic</div>
-                                    <div class="privacy-desc" data-i18n="generator.privacyOptions.basicDesc">Standard profile data</div>
-                                </div>
-                            </label>
-                            <label class="privacy-label">
-                                <input type="radio" name="privacy" value="medium" class="privacy-radio">
-                                <div class="privacy-option">
-                                    <div class="privacy-name" data-i18n="generator.privacyOptions.medium">Medium</div>
-                                    <div class="privacy-desc" data-i18n="generator.privacyOptions.mediumDesc">Limited personal data</div>
-                                </div>
-                            </label>
-                            <label class="privacy-label">
-                                <input type="radio" name="privacy" value="full" class="privacy-radio">
-                                <div class="privacy-option">
-                                    <div class="privacy-name" data-i18n="generator.privacyOptions.full">Full Anonymous</div>
-                                    <div class="privacy-desc" data-i18n="generator.privacyOptions.fullDesc">Minimal data only</div>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Privacy Score -->
-                    <div class="privacy-score">
-                        <div class="score-label" data-i18n="generator.score">Privacy Score</div>
-                        <div class="score-bar">
-                            <div id="privacyScoreBar" class="score-fill" style="width: 30%"></div>
-                        </div>
-                        <div id="privacyScoreText" class="score-text">30% - More Private</div>
-                    </div>
-                </div>
-
-                <div class="config-buttons">
-                    <button id="generateBtn" class="btn btn-primary">
-                        <span class="btn-icon">✨</span>
-                        <span data-i18n="generator.generate">Generate Virtual Account</span>
-                    </button>
-                </div>
-
-                <!-- Status Message -->
-                <div id="statusMessage" class="status-message"></div>
-            </section>
-
-            <!-- Generated Account Display -->
-            <section id="accountDisplaySection" class="account-display-section hidden">
-                <div id="accountDisplay" class="account-card-large">
-                    <div class="account-card-header">
-                        <h3 data-i18n="generator.success">Account Created Successfully</h3>
-                    </div>
-                    <div class="account-card-content">
-                        <div class="avatar-section">
-                            <div id="displayAvatar" class="avatar-display">👤</div>
-                        </div>
-                        <div class="account-details">
-                            <div id="detailsContainer"></div>
-                        </div>
-                    </div>
-                    <div class="account-card-footer">
-                        <button id="copyAllBtn" class="btn btn-secondary">
-                            <span>📋 <span data-i18n="dashboard.accountDisplay.copyAll">Copy All</span></span>
-                        </button>
-                        <button id="deactivateBtn" class="btn btn-danger">
-                            <span>🔴 <span data-i18n="dashboard.accountDisplay.deactivate">Deactivate</span></span>
-                        </button>
-                        <button id="shareBtn" class="btn btn-secondary">
-                            <span>🔗 <span data-i18n="dashboard.accountDisplay.share">Share</span></span>
-                        </button>
-                        <button id="generateAnotherBtn" class="btn btn-primary">
-                            <span>✨ <span data-i18n="dashboard.accountDisplay.generateAnother">Generate Another</span></span>
+                        <button class="md:hidden p-2 text-black z-[10001] relative">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true">
+                                <path d="M4 5h16"></path>
+                                <path d="M4 12h16"></path>
+                                <path d="M4 19h16"></path>
+                            </svg>
                         </button>
                     </div>
-                </div>
-            </section>
-
-            <!-- Feedback / Pages (hidden by default) -->
-            <section id="feedbackSection" class="page-section">
-                <div class="section-header"><h2 data-i18n="feedback.title">Feedback</h2></div>
-                <p class="section-desc" data-i18n="feedback.desc">Feedback helps improve the prototype. This demo feedback form collects impressions and suggested improvements — the data is stored locally for demonstration only.</p>
-                <form id="feedbackForm" class="demo-form">
-                    <label data-i18n="feedback.name">Name</label>
-                    <input type="text" id="feedbackName" placeholder="Your name" class="form-input" data-i18n-placeholder="feedback.namePlaceholder">
-                    <label data-i18n="feedback.email">Your email</label>
-                    <input type="email" id="feedbackEmail" placeholder="you@example.com" class="form-input" data-i18n-placeholder="feedback.emailPlaceholder">
-                    <label data-i18n="feedback.message">Your feedback</label>
-                    <textarea id="feedbackText" rows="5" placeholder="Tell us what you think" class="form-textarea" data-i18n-placeholder="feedback.messagePlaceholder"></textarea>
-                    <button type="submit" class="btn btn-primary" data-i18n="feedback.send">Send Feedback</button>
-                </form>
-            </section>
-
-            <section id="rateSection" class="page-section">
-                <div class="section-header"><h2 data-i18n="rate.title">Rate Us</h2></div>
-                <p class="section-desc" data-i18n="rate.desc">Ratings provide a lightweight signal of user satisfaction. In this demo, ratings are saved locally and used only to illustrate feedback loops in product design.</p>
-                <div class="star-rating" id="starRating">
-                    <button class="star" data-value="1">★</button>
-                    <button class="star" data-value="2">★</button>
-                    <button class="star" data-value="3">★</button>
-                    <button class="star" data-value="4">★</button>
-                    <button class="star" data-value="5">★</button>
-                </div>
-                <div id="ratingResult" class="rating-result" data-i18n="rate.thanks">Thanks for rating</div>
-            </section>
-
-            <section id="supportSection" class="page-section">
-                <div class="section-header"><h2 data-i18n="support.title">Customer Support</h2></div>
-                <p class="section-desc" data-i18n="support.desc">This demo chat interface simulates a support channel where users can ask questions about ShadowLogin usage. All messages remain local and the bot replies with canned, educational responses.</p>
-                <div id="chatWindow" class="chat-window">
-                    <div class="chat-messages" id="chatMessages">
-                        <div class="chat-bot" data-i18n="support.hello">Hello! This is a demo support bot. How can I help?</div>
+                    <div class="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity duration-300 md:hidden opacity-0 invisible z-[9999]"></div>
+                    <div class="fixed top-0 right-0 h-screen w-[75%] sm:w-[50%] transform transition-transform duration-500 ease-in-out md:hidden z-[10000] translate-x-full" style="background-color: rgb(255, 255, 255);">
+                        <div class="flex flex-col h-full items-center justify-center space-y-8 px-6">
+                            <a href="/#biography" class="text-lg font-bold text-black uppercase text-center transition-all transform translate-x-10 opacity-0" style="transition-delay: 0ms; display: block;">Өмірбаяны</a>
+                            <a href="/book-of-words/" class="text-lg font-bold text-black uppercase text-center transition-all transform translate-x-10 opacity-0" style="transition-delay: 0ms; display: block;">Қара сөздер</a>
+                            <a href="/#poetry" class="text-lg font-bold text-black uppercase text-center transition-all transform translate-x-10 opacity-0" style="transition-delay: 0ms; display: block;">Өлеңдер</a>
+                            <a href="/#abai_tanu" class="text-lg font-bold text-black uppercase text-center transition-all transform translate-x-10 opacity-0" style="transition-delay: 0ms; display: block;">Абай Тану</a>
+                            <a href="/iran-gaiyp/" class="text-lg font-bold text-black uppercase text-center transition-all transform translate-x-10 opacity-0" style="transition-delay: 0ms; display: block;">Иран-Ғайып</a>
+                            <a href="/tolyq_adam/" class="text-lg font-bold text-black uppercase text-center transition-all transform translate-x-10 opacity-0" style="transition-delay: 0ms; display: block;">Толық Адам</a>
+                            <a href="/tests/" class="text-lg font-bold text-black uppercase text-center transition-all transform translate-x-10 opacity-0" style="transition-delay: 0ms; display: block;">Тест</a>
+                        </div>
                     </div>
-                    <div class="chat-input">
-                        <input id="chatInputField" placeholder="Type a message" class="form-input">
-                        <button id="chatSendBtn" class="btn btn-primary" data-i18n="support.send">Send</button>
+                </nav>
+                <section class="relative min-h-screen flex items-center pt-20 overflow-hidden section-reveal">
+                    <div class="absolute inset-0 z-0 opacity-[0.03] pointer-events-none pattern-drift" style="background-image: url(&quot;/static/abai-muse/assets/kazakh-pattern-Ba0p9xHQ.png&quot;); background-size: 400px;"></div>
+                    <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+                        <div class="order-2 md:order-1 space-y-8 animate-fade-up">
+                            <div class="space-y-2">
+                                <h2 class="text-secondary font-sans uppercase tracking-[0.2em] text-sm font-semibold">Дала данасының жыры</h2>
+                                <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-medium text-foreground leading-[0.9]">
+                                    Абай <br>Құнанбайұлы
+                                </h1>
+                            </div>
+                            <p class="text-xl text-muted-foreground leading-relaxed max-w-lg font-serif italic border-l-2 border-secondary pl-6">"Бас-басыңды тік ұстап, дүниеге ашық көзбен қара. Білім — надандық қараңғылығын сейілтетін шырақ."</p>
+                            <div class="pt-4 flex flex-wrap items-center gap-4">
+                                <a href="/#biography" class="group inline-flex items-center gap-2 text-primary font-medium uppercase tracking-widest text-sm hover:gap-4 transition-all">
+                                    Өмір жолын оқу <span class="text-xl">→</span>
+                                </a>
+                                <a href="/book-of-words/" class="inline-flex items-center gap-2 rounded-full bg-secondary text-secondary-foreground px-4 py-2 text-xs font-semibold uppercase tracking-widest hover:opacity-90 transition-opacity">Қара сөздер</a>
+                            </div>
+                        </div>
+                        <div class="order-1 md:order-2 relative animate-fade-up delay-150">
+                            <div class="aspect-[3/4] rounded-sm overflow-hidden shadow-2xl relative">
+                                <div class="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent z-10"></div>
+                                <img alt="Абай Құнанбайұлының портреті" class="w-full h-full object-cover transform transition-transform duration-[20s] hover:scale-110" src="127.0.0.1_files/abai-portrait2-DR-h9pZM.png">
+                            </div>
+                            <div class="absolute -bottom-6 -right-6 w-full h-full border-2 border-secondary/30 -z-10 rounded-sm"></div>
+                        </div>
                     </div>
-                </div>
-            </section>
-
-            <!-- Share Modal -->
-            <div id="shareModal" class="modal hidden">
-                <div class="modal-content">
-                    <h3>Share Account</h3>
-                    <textarea id="shareText" rows="6"></textarea>
-                    <div class="modal-actions">
-                        <button id="shareCopyBtn" class="btn btn-primary">Copy</button>
-                        <button id="shareCloseBtn" class="btn btn-secondary">Close</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Dashboard Section -->
-            <section id="dashboardSection" class="dashboard-section">
-                <div class="section-header">
-                    <h2 data-i18n="dashboard.title">Dashboard</h2>
-                </div>
-
-                <div class="dashboard-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon">📊</div>
-                        <div class="stat-label" data-i18n="dashboard.total">Total Accounts</div>
-                        <div id="totalAccounts" class="stat-value">0</div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-icon">✅</div>
-                        <div class="stat-label" data-i18n="dashboard.active">Active Accounts</div>
-                        <div id="activeAccounts" class="stat-value">0</div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-icon">⏰</div>
-                        <div class="stat-label" data-i18n="dashboard.expired">Expired Accounts</div>
-                        <div id="expiredAccounts" class="stat-value">0</div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-icon">🔒</div>
-                        <div class="stat-label" data-i18n="dashboard.privacy">Privacy Score</div>
-                        <div id="avgPrivacyScore" class="stat-value">0%</div>
-                    </div>
-                </div>
-
-                <!-- Accounts List -->
-                <div class="accounts-list-header">
-                    <h3 data-i18n="dashboard.generated">Generated Accounts</h3>
-                    <button id="clearBtn" class="btn btn-secondary" data-i18n="dashboard.clearAll">Clear All</button>
-                </div>
-
-                <div id="accountsList" class="accounts-list">
-                    <div class="empty-state">
-                        <p data-i18n="dashboard.noAccounts">📭 No accounts</p>
-                        <p class="empty-hint" data-i18n="dashboard.noHint">Generate your first account to get started</p>
-                    </div>
-                </div>
-
-                <!-- Activity Log -->
-                <div class="activity-log-section">
-                    <h3 data-i18n="dashboard.activity">Activity Log</h3>
-                    <div id="activityLog" class="activity-log">
-                        <div class="activity-empty">No activity yet</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Feedback -->
-            <section id="feedbackSection" class="page-section">
-                <div class="section-header"><h2>Feedback</h2></div>
-                <p class="section-desc">Feedback helps improve the prototype. This demo feedback form collects impressions and suggested improvements — the data is stored locally for demonstration only.</p>
-                <form id="feedbackForm" class="demo-form">
-                    <label>Name</label>
-                    <input type="text" id="feedbackName" placeholder="Your name">
-                    <label>Your email</label>
-                    <input type="email" id="feedbackEmail" placeholder="you@example.com">
-                    <label>Your feedback</label>
-                    <textarea id="feedbackText" rows="4" placeholder="Tell us what you think"></textarea>
-                    <button type="submit" class="btn btn-primary">Send Feedback</button>
-                </form>
-            </section>
-
-            <!-- Rate Us -->
-            <section id="rateSection" class="page-section">
-                <div class="section-header"><h2 data-i18n="rate.title">Rate Us</h2></div>
-                <p class="section-desc" data-i18n="rate.desc">Ratings provide a lightweight signal of user satisfaction. In this demo, ratings are saved locally and used only to illustrate feedback loops in product design.</p>
-                <div class="star-rating" id="starRating">
-                    <button class="star" data-value="1">★</button>
-                    <button class="star" data-value="2">★</button>
-                    <button class="star" data-value="3">★</button>
-                    <button class="star" data-value="4">★</button>
-                    <button class="star" data-value="5">★</button>
-                </div>
-                <div id="ratingResult" class="rating-result" data-i18n="rate.thanks">Thanks for rating</div>
-            </section>
-
-            <!-- Support -->
-            <section id="supportSection" class="page-section">
-                <div class="section-header"><h2 data-i18n="support.title">Customer Support</h2></div>
-                <p class="section-desc" data-i18n="support.desc">This demo chat interface simulates a support channel where users can ask questions about ShadowLogin usage. All messages remain local and the bot replies with canned, educational responses.</p>
-                <div id="chatWindow" class="chat-window">
-                    <div class="chat-messages" id="chatMessages">
-                        <div class="chat-bot" data-i18n="support.hello">Hello! This is a demo support bot. How can I help?</div>
-                    </div>
-                    <div class="chat-input">
-                        <input id="chatInputField" placeholder="Type a message" data-i18n-placeholder="support.placeholder" class="form-input">
-                        <button id="chatSendBtn" class="btn btn-primary" data-i18n="support.send">Send</button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- About Us -->
-            <section id="aboutSection" class="page-section">
-                <div class="section-header"><h2 data-i18n="about.title">About Us</h2></div>
-                <p class="section-desc" data-i18n="about.desc1">ShadowLogin was created as an academic prototype by students and researchers focused on privacy-preserving demonstrations. The primary goal is to showcase how temporary virtual accounts can be instrumented to support UX testing and privacy education without exposing real user data.</p>
-                <p data-i18n="about.desc2">Instructors and reviewers should note this is intentionally isolated from real authentication systems; it illustrates design patterns not production deployment.</p>
-            </section>
-
-            <!-- What We Do -->
-            <section id="whatWeDoSection" class="page-section">
-                <div class="section-header"><h2 data-i18n="whatWeDo.title">What We Do</h2></div>
-                <p class="section-desc" data-i18n="whatWeDo.desc">ShadowLogin demonstrates several features relevant to privacy-first prototypes:</p>
-                <ul>
-                    <li data-i18n="whatWeDo.feature1">Generate temporary accounts with selectable fields.</li>
-                    <li data-i18n="whatWeDo.feature2">Adjust privacy level and observe a demo privacy score.</li>
-                    <li data-i18n="whatWeDo.feature3">Track lifecycle with dashboard statistics and activity logs.</li>
-                    <li data-i18n="whatWeDo.feature4">Share or deactivate demo accounts as part of testing workflows.</li>
-                    <li data-i18n="whatWeDo.feature5">Collect feedback and ratings locally for evaluation.</li>
-                </ul>
-            </section>
-
-            <!-- What's New -->
-            <section id="whatsNewSection" class="page-section">
-                <div class="section-header"><h2 data-i18n="whatsNew.title">What's New</h2></div>
-                <p class="section-desc" data-i18n="whatsNew.desc">Recent updates in this Advanced Edition include multi-type account generation, an improved dashboard, mobile responsiveness, demo chat, and enhanced privacy scoring. These changes deepen the educational value and make the demo suitable for presentation environments.</p>
-                <ul>
-                    <li data-i18n="whatsNew.update1">Multi-type account generation (Social, Email, Website, Gaming, Anonymous, Custom)</li>
-                    <li data-i18n="whatsNew.update2">Persistent local storage and lifecycle management</li>
-                    <li data-i18n="whatsNew.update3">Privacy score and visual indicators</li>
-                    <li data-i18n="whatsNew.update4">Share & deactivate actions</li>
-                    <li data-i18n="whatsNew.update5">Responsive, mobile-first UI with sticky navigation</li>
-                </ul>
-            </section>
-
-            <!-- UI & General Requirements -->
-            <section id="uiSection" class="page-section">
-                <div class="section-header"><h2 data-i18n="ui.title">UI & General Requirements</h2></div>
-                <p class="section-desc" data-i18n="ui.desc">This demo follows a mobile-first, dark cybersecurity theme. Navigation is sticky and uses smooth scroll with active section highlighting. Animations are subtle and designed to draw attention to lifecycle events (account generation and expiration) without being distracting. The prototype purposefully avoids external integrations — it is an isolated academic demonstration.</p>
-            </section>
-        </main>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <p>ShadowLogin © 2026 - Academic Graduation Demo Project (Advanced Edition)</p>
-        </footer>
+                </section>
+                <section id="biography" class="py-24 bg-muted/30 relative section-reveal">
+                    <div class="container mx-auto px-6 max-w-4xl">
+                        <div class="space-y-12">
+                            <div class="text-center space-y-4">
+                                <h2 class="text-3xl md:text-4xl font-serif text-primary">Ағартушының өмірі</h2>
+                                <div class="w-24 h-1 bg-secondary mx-auto"></div>
+                            </div>
+                            <div class="prose prose-lg prose-stone mx-auto text-muted-foreground first-letter:text-5xl first-letter:font-serif first-letter:text-primary first-letter:mr-3 first-letter:float-left">
+                                <p>Абай Құнанбайұлы (1845–1904) — қазақтың ұлы ақыны, ойшылы, ағартушысы, қазақ жазба әдебиетінің негізін қалаушылардың бірі. Ол қазіргі Абай облысы аумағында дүниеге келген. Абай шығармаларында білім, ғылым, адамгершілік, еңбекқорлық және әділдік тақырыптары кеңінен қозғалды. Оның өлеңдері мен «Қара сөздері» қазақ қоғамының дамуына, ұлттық сананың оянуына үлкен ықпал етті. Сонымен қатар ол орыс және әлем классиктерін қазақ тіліне аударып, мәдени байланысты нығайтты. Абай мұрасы — қазақ руханиятының асыл қазынасы және бүгінгі күнге дейін маңызын жоғалтпаған құндылық.</p>
+                                <div class="pt-4 flex flex-wrap items-center gap-4 mb-3"></div>
+                                <p>Абайдың «Қара сөздері» — ақынның философиялық ой-толғаулары мен тәрбиелік, ағартушылық көзқарастары жинақталған прозалық шығармалары. Барлығы 45 қара сөзден тұрады. Бұл еңбектерінде Абай білім мен ғылымның маңызын, адамгершілік, еңбекқорлық, әділдік, мінез-құлық, имандылық мәселелерін көтеріп, халықты рухани дамуға шақырады. «Қара сөздер» — қазақ әдебиетіндегі терең мағыналы, өнегелік мәні зор мұралардың бірі және бүгінгі қоғам үшін де өзектілігін сақтаған туынды.</p>
+                            </div>
+            </p>
+<div class="text-center space-y-4">
+    <h2 class="text-3xl md:text-4xl font-serif text-primary">Шығармалары</h2>
+    <div class="w-24 h-1 bg-secondary mx-auto"></div>
+</div>
+<p>Абай өлең жазуды 10 жасында («Кім екен деп келіп ем түйе қуған...») бастаған. Одан басқа ертеректе жазылған өлеңдері — «Йузи-рәушән», екіншісі — «Физули, Шәмси, Сәйхали». «Сап, сап, көңілім», «Шәріпке», «Абралыға», «Жақсылыққа», «Кең жайлау» өлеңдері 1870 — 80 жылдар аралығында жазылған. Ақындық қуатын танытқан үлкен шығармасы — «Қансонарда» 1882 ж. жазылған. Алайда жасы қырыққа келгеннен кейін ғана көркем әдебиетке шындап ықылас қойып, көзқарасы қалыптасып, сөз өнерінің халық санасына тигізер ықпалын түсінеді. Шығармалары үш жүйемен өрбиді: бірі — өз жанынан шығарған төл өлеңдері; екіншісі — ғақлия (немесе Абайдың қара сөздері) деп аталатын прозасы; үшіншісі — өзге тілдерден, әсіресе орысшадан аударған өлеңдері.
+<div class="pt-4 flex flex-wrap items-center gap-4 mb-1.5"></div>
+Абай өлеңдері түгел дерлік лирикадан құралады, поэма жанрына көп бой бұрмағаны байқалады. Қысқа өлеңдерінде табиғат бейнесін, адамдар портретін жасауға, ішкі-сыртқы қылық-қасиеттерін, мінез-бітімдерін айқын суреттермен көрсетуге өте шебер. Қай өлеңінен де қазақ жерінің, қазақтың ұлттық сипатының ерекшеліктері көрініп тұрады. Ислам діні тараған Шығыс елдерінің әдебиетімен жақсы танысу арқылы өзінің шеберлік — шалымын одан әрі шыңдайды. Шығыстың екі хикаясын «Масғұт» және «Ескендір» деген атпен өлеңге айналдырады. Ислам дініне өзінше сенген діни таным жайындағы философиялық көзқарастарын да өлеңмен жеткізеді. Абайдың дүниетанудағы көзқарасы XIX ғасырдың екінші жартысында Қазақ халқының экономикасы мен ой-пікірінің алға ұмтылу бағытында даму ықпалымен қалыптасты. Дүниетану жолында сары-орыстың төңкерісшіл демократтарының шығармаларын оқып, өз дәуірінің алдыңғы қатарлы ой-пікірін қорытып, басқаларға қазақ өміріндегі аса маңызды мәселелерді түсіндіруге қолданады. Дүниетану өңірінде екі қасиеттің — сезім мен қисынның , түйсік пен ақылдың қатынасын таразылайды. Сондықтан да: «Ақыл сенбей сенбеңіз, Бір іске кез келсеңіз» деп жазады.<div class="pt-4 flex flex-wrap items-center gap-4 mb-1.5"></div>
+Кез келген халықтың тарих сахнасына шығуы — жүйеге бейімделген біртектес өмір салттың ғана нәтижесі емес, сонымен бірге қасиеттік деп саналатын- арман-аңсардың (идеал) да біртұтастығына айғақ. Олай болса Абай сынының тәлкегіне түскен еріншектік, дарақылық, жалқаулық, күншілдік, өтірікшілік, өсекшілдік, мақтаншақтық, жағымпаздық, жікшілдік сияқты қасиеттер қазақ баласының кейбірінің бойындағы туа біткен кемшілік емес, сол Абай өмір сүрген қоғамдағы саяси әлеуметтік қатынастардың нәтижесі екеніне ден қою қажет. Сонда, Абай бұрынғы бабаларымыздың бойынан көрген «кемшіліктерді» себеп ретінде емес, сол замандағы саяси-әлеуметтік қатынастардың салдары ретінде қарастыруға жол ашқан.</p>
+<div class="text-center space-y-4">
+    <h2 class="text-3xl md:text-4xl font-serif text-primary">Қара сөздері</h2>
+    <div class="w-24 h-1 bg-secondary mx-auto"></div>
+</div>
+<p>Абай Құнанбайұлының көркемдік, әлеуметтік, гуманистік және дінге көзқарастары терең білінген еңбегі — қара сөздері. Абай Құнанбайұлының қара сөздері (Ғақлия) — ұлы ақынның сөз өнеріндегі көркемдік қуатын, философиядағы даналық дүниетанымын даралап көрсететін классикалық стильде жазылған прозалық шығармасы. Жалпы саны қырық бес бөлек шығармадан тұратын Абай Құнанбайұлының қара сөздері тақырыбы жағынан бір бағытта жазылмаған, әр алуан. Оның алты-жеті үлгісі қысқа болса, қайсыбіреуі мазмұн, тақырып жағынан өзгешелеу, ауқымды болып келеді. Абай Құнанбайұлының өзінің қара сөздерінде шығарманың ажарына ғана назар аударып қоймай, оның тереңдігіне, логикалық мәніне зор салған.
+<div class="pt-4 flex flex-wrap items-center gap-4 mb-1.5"></div>
+Сөйтіп көркемдік шеберлік пен ғылыми зерделік арқылы көркемдік сана мен философиялық сананы ұштастырады. Абай Құнанбайұлының қара сөздеріндегі гуманистік, ағартушылық, әлеуметтік ойлары дін туралы пікірлерімен бірігіп, тұтас бір қазақ халқының философиялық концепциясын құрайды. Абай Құнанбайұлының кара сөздері сондай-ақ жалпы адамзат баласына ортақ асыл сөзге айналды.<div class="pt-4 flex flex-wrap items-center gap-4 mb-1.5"></div>
+Оның қара сөздерінің бірнешеуі ең алғаш 1918 жылы Семейде шыққан «Абай» журналында жарық көрді. Кейіннен, Абайдың қара сөздері орыс, қытай, француз, т.б. көптеген әлем тілдеріне аударылды.</p>
+<div class="text-center space-y-4">
+    <h2 class="text-3xl md:text-4xl font-serif text-primary">Қара сөзде айтылған ой</h2>
+    <div class="w-24 h-1 bg-secondary mx-auto"></div>
+</div>
+<p>Абайдың жетінші қара сөзінде ұшырасатын «жанның тамағы» деген күрделі философиялық ұғым бар. Оны Абай Құнанбайұлы біздің санамыздан тыс өмір сүретін объективті дүниенің санада сәулеленуі нәтижесіңде пайда болатын ғылым, білімнің жинақталған қоры ретінде қарайды. Осы себептен де Абай Құнанбайұлы:
+<div class="pt-4 flex flex-wrap items-center gap-4 mb-1.5"></div>
+<p class="text-xl text-muted-foreground leading-relaxed max-w-lg font-serif italic border-l-2 border-secondary pl-6">"... құмарланып, жиған қазынамызды көбейтсек керек, бұл жанның тамағы еді,"</p>
+<div class="pt-4 flex flex-wrap items-center gap-4 mb-1.5"></div>
+— деп қайыра түсінік беріп отыр... Абай Құнанбайұлындай ұстаз ақынның бұл «Жетінші сөзде» көздеген мақсаты адамның бойыңда туа пайда болатын жан құмары арқылы өз ұрпағының санасына тек қана жанның пайдалы тамақтарын сіңдіру еді. Міне, Абай Құнанбайұлы ағартушылық көзқарасының тамыр алған бір саласының қайнар көзі осы жақта жатыр.<div class="pt-4 flex flex-wrap items-center gap-4 mb-1.5"></div>
+Абай Құнанбайұлы бұл бағыттағы ойларын өзге сөзбен "Ғылым таппай мақтанба" т.б. өлеңдерінде айтқан. Мұнда ол "жанның тамағы туралы" ұғымды өз заманынын тұрғысынан келіп, "адам болу" үшін қажет көп керектермен ауыстырады. Ақын толық адам болу туралы өзінің жүйелі де қалыптасқан көзқарасының тезисін ұсынады. Онысы:<div class="pt-4 flex flex-wrap items-center gap-4 mb-1.5"></div>
+<p class="text-xl text-muted-foreground leading-relaxed max-w-lg font-serif italic border-l-2 border-secondary pl-6">"Адам болам десеңіз... Бес нәрседен қашық бол..., Бес нәрсеге асық бол,"</p>
+<div class="pt-4 flex flex-wrap items-center gap-4 mb-1.5"></div>
+- деген жолдарда жатыр. Ақынның бүкіл шығармаларындағы негізгі бір тұтас тақырыпта өзекті идея болған. Абай Құнанбайұлының пікірінше, ішкі рухани казынамыздың молығуы тікелей өзіміздің қолымыздағы іс. Осы реуішті пікір Абай Құнанбайұлының «Он тоғызыншы сөзінде» де қайталанады. Абай Құнанбайұлының дүние танымы бойынша сананың, ақылдың пайда болуы күнделікті өмір тәжірибесінің нәтижесінен ғана туындайтын табиғи құбылыс. Соңдықтан да Абай Құнанбайұлы Он тоғызыншы сөзінде:<div class="pt-4 flex flex-wrap items-center gap-4 mb-1.5"></div>
+<p class="text-xl text-muted-foreground leading-relaxed max-w-lg font-serif italic border-l-2 border-secondary pl-6">"Адам ата-анадан туғаңда есті болмайды: есітіп, көріп, ұстап, татып ескерсе, дүниедегі жақсы, жаманды таниды-дағы, сондайдан білгені, көргені көп болған адам білімді болады. Естілердің айтқан сөздерін ескеріп жүрген кісі өзі де есті болады... Сол естілерден есітіп білген жақсы нәрселерді ескерсе, жаман дегеннен сақтанса, соңда іске жарайды, сонда адам десе болады,"</p>
+<div class="pt-4 flex flex-wrap items-center gap-4 mb-1.5"></div>
+— деп жоғарыдағы өлең үзіндісендегі ойын осы сөзіңде одан ары кеңіте отырып дамытатынын көруге болады.</p>
+<section id="abai_tanu" class="py-24 bg-muted/30 relative section-reveal"> </section>
+<div class="text-center space-y-4">
+    <h2 class="text-3xl md:text-4xl font-serif text-primary">Абайтану</h2>
+    <div class="w-24 h-1 bg-secondary mx-auto"></div>
+</div>
+<p>Абайтану қазақ әдебиеттану ғылымының саласы. Абайтану Абайдың өмірі мен шығармашылық өнері, философиясы, қоғамдық, эстететикалық көзқарастары, қазақ халық поэзиясындағы өлең жүйесін, ақындық тілді дамытудағы үлесі, музыкалық мұрасы жайлы сан-салалы зерттеу еңбектерін қамтиды. Абайдың өмірі мен шығармашылық мұрасын зерттеу шын мәнінде Әлихан Бөкейханов, Ахмет Байтұрсынұлы, Міржақып Дулатұлы мақалаларынан басталды деуге болады.
+<div class="pt-4 flex flex-wrap items-center gap-4 mb-1.5"></div>
+Ахмет Байтұрсынұлы 1913 ж. «Қазақ» газетінде басылған «Абай – қазақтың бас ақыны» атты мақаласында «Одан асқан бұрын-соңғы заманда қазақ баласында біз білетін ақын болған жоқ» – деп Абайды аса жоғары бағалады. Абай шығармаларын жинап, қағазға түсіріп, реттеп, баспаға дайындау ісі ақын қайтыс болған соң ұзамай-ақ қолға алынғанын дәлелдейтін нақтылы деректер жетерлік. Жарық көруінен бірнеше жыл бұрын құрастырылып, 1909 жылы Санкт-Петербургте басылған Абай өлеңдерінің жинағында ақынның жүз қырықтай өлеңі (аударма өлеңдерін қосып санағанда) мен «Ескендір», «Масғұт» поэмалары басылғаны, яғни осы күнгі белгілі поэзиялық шығармаларының көрнектілері түгелге жуық қамтылды.</p>
+<div class="grid md:grid-cols-3 gap-6 pt-8">
+    <div class="rounded-xl border text-card-foreground bg-background/50 border-none shadow-sm hover:shadow-md transition-shadow">
+        <div class="p-6 text-center space-y-2">
+            <span class="text-4xl font-serif text-secondary opacity-50 block">1845</span>
+            <h3 class="font-bold text-foreground">Туған жылы</h3>
+            <p class="text-sm text-muted-foreground">Шыңғыс өңірінде дүниеге келді.</p>
+        </div>
     </div>
+    <div class="rounded-xl border text-card-foreground bg-background/50 border-none shadow-sm hover:shadow-md transition-shadow">
+        <div class="p-6 text-center space-y-2">
+            <span class="text-4xl font-serif text-secondary opacity-50 block">1886</span>
+            <h3 class="font-bold text-foreground">Шығармашылық кезең</h3>
+            <p class="text-sm text-muted-foreground">Ең әйгілі өлеңдері мен ой-толғамдарын жазды.</p>
+        </div>
+    </div>
+    <div class="rounded-xl border text-card-foreground bg-background/50 border-none shadow-sm hover:shadow-md transition-shadow">
+        <div class="p-6 text-center space-y-2">
+            <span class="text-4xl font-serif text-secondary opacity-50 block">1904</span>
+            <h3 class="font-bold text-foreground">Мұра</h3>
+            <p class="text-sm text-muted-foreground">Қазақ жазба әдебиетінің негізін қалады.</p>
+        </div>
+    </div>
+</div>
+</div></div></section>
+<section id="poetry" class="py-24 bg-background section-reveal">
+    <div class="container mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+            <h2 class="text-4xl font-serif text-foreground">Абай Құнанбайұлының «ТОЛЫҚ АДАМ» туралы өлеңдері</h2>
+            <p class="text-muted-foreground">Абай поэзиясы қазақ тілінің көркем мүмкіндігін кеңейтіп, ой мен сезімді терең жеткізді.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="rounded-xl border bg-card text-card-foreground shadow group transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:border-secondary/50">
+                <div class="p-8 space-y-6">
+                    <h3 class="text-2xl font-serif text-primary group-hover:text-secondary transition-colors text-center">Көктем</h3>
+                    <div class="space-y-2 text-center">
+                        <p class="text-muted-foreground font-serif italic text-sm md:text-base leading-relaxed">Жазғытұры қалмайды қыстың сызы,</p>
+                        <p class="text-muted-foreground font-serif italic text-sm md:text-base leading-relaxed">Масатыдай құлпырар жердің жүзі.</p>
+                    </div>
+                    <div class="flex justify-center">
+                        <button type="button" class="text-xs uppercase tracking-widest text-primary hover:text-secondary transition-colors duration-300">Толық оқу</button>
+                    </div>
+                </div>
+            </div>
+            <div class="rounded-xl border bg-card text-card-foreground shadow group transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:border-secondary/50">
+                <div class="p-8 space-y-6">
+                    <h3 class="text-2xl font-serif text-primary group-hover:text-secondary transition-colors text-center">Жаз</h3>
+                    <div class="space-y-2 text-center">
+                        <p class="text-muted-foreground font-serif italic text-sm md:text-base leading-relaxed">Жаздыгүн шілде болғанда,</p>
+                        <p class="text-muted-foreground font-serif italic text-sm md:text-base leading-relaxed">Көкорай шалғын, бәйшешек...</p>
+                    </div>
+                    <div class="flex justify-center">
+                        <button type="button" class="text-xs uppercase tracking-widest text-primary hover:text-secondary transition-colors duration-300">Толық оқу</button>
+                    </div>
+                </div>
+            </div>
+            <div class="rounded-xl border bg-card text-card-foreground shadow group transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:border-secondary/50">
+                <div class="p-8 space-y-6">
+                    <h3 class="text-2xl font-serif text-primary group-hover:text-secondary transition-colors text-center">Күз</h3>
+                    <div class="space-y-2 text-center">
+                        <p class="text-muted-foreground font-serif italic text-sm md:text-base leading-relaxed">Сұр бұлт түсі суық қаптайды аспан,</p>
+                        <p class="text-muted-foreground font-serif italic text-sm md:text-base leading-relaxed">Күз болып, дымқыл тұман жерді басқан.</p>
+                    </div>
+                    <div class="flex justify-center">
+                        <button type="button" class="text-xs uppercase tracking-widest text-primary hover:text-secondary transition-colors duration-300">Толық оқу</button>
+                    </div>
+                </div>
+            </div>
+            <div class="rounded-xl border bg-card text-card-foreground shadow group transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:border-secondary/50">
+                <div class="p-8 space-y-6">
+                    <h3 class="text-2xl font-serif text-primary group-hover:text-secondary transition-colors text-center">Қыс</h3>
+                    <div class="space-y-2 text-center">
+                        <p class="text-muted-foreground font-serif italic text-sm md:text-base leading-relaxed">Ақ киімді, денелі, ақ сақалды,</p>
+                        <p class="text-muted-foreground font-serif italic text-sm md:text-base leading-relaxed">Соқыр, мылқау, танымас тірі жанды.</p>
+                    </div>
+                    <div class="flex justify-center">
+                        <button type="button" class="text-xs uppercase tracking-widest text-primary hover:text-secondary transition-colors duration-300">Толық оқу</button>
+                    </div>
+                </div>
+            </div>
+            <div class="rounded-xl border bg-card text-card-foreground shadow group transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:border-secondary/50">
+                <div class="p-8 space-y-6">
+                    <h3 class="text-2xl font-serif text-primary group-hover:text-secondary transition-colors text-center">Әсемпаз болма әрнеге</h3>
+                    <div class="space-y-2 text-center">
+                        <p class="text-muted-foreground font-serif italic text-sm md:text-base leading-relaxed">Сен де — бір кірпіш, дүниеге</p>
+                        <p class="text-muted-foreground font-serif italic text-sm md:text-base leading-relaxed">Кетігін тап та, бар қалан!</p>
+                    </div>
+                    <div class="flex justify-center">
+                        <button type="button" class="text-xs uppercase tracking-widest text-primary hover:text-secondary transition-colors duration-300">Толық оқу</button>
+                    </div>
+                </div>
+            </div>
+            <div class="rounded-xl border bg-card text-card-foreground shadow group transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:border-secondary/50">
+                <div class="p-8 space-y-6">
+                    <h3 class="text-2xl font-serif text-primary group-hover:text-secondary transition-colors text-center">Білімдіден шыққан сөз</h3>
+                    <div class="space-y-2 text-center">
+                        <p class="text-muted-foreground font-serif italic text-sm md:text-base leading-relaxed">Білімдіден шыққан сөз</p>
+                        <p class="text-muted-foreground font-serif italic text-sm md:text-base leading-relaxed">Талаптыға болсын кез.</p>
+                    </div>
+                    <div class="flex justify-center">
+                        <button type="button" class="text-xs uppercase tracking-widest text-primary hover:text-secondary transition-colors duration-300">Толық оқу</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer id="legacy" class="bg-foreground text-background py-16">
+    <div class="container mx-auto px-6 flex flex-col items-center text-center space-y-8">
+        <div class="text-3xl font-serif font-bold tracking-tight text-background">Абай</div>
+        <div class="w-12 h-0.5 bg-secondary/50"></div>
+        <p class="max-w-md text-background/60 font-light">"Адам болам десеңіз: ақыл, жүрек, қайратты тең ұстаңыз."</p>
+        <div class="text-sm text-background/40 pt-8">© 2026 Абай Құнанбайұлына арналған жоба.</div>
+    </div>
+</footer>
+</div></div>
+<veepn-lock-screen>
+    <template shadowrootmode="open">
+        <style>
+            html {
+                box-sizing: border-box;
+                text-size-adjust: 100%;
+                word-break: normal;
+                tab-size: 4
+            }
 
-    <script src="i18n.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+            *,:before,:after {
+                background-repeat: no-repeat;
+                box-sizing: border-box
+            }
+
+            :before,:after {
+                text-decoration: inherit;
+                vertical-align: inherit
+            }
+
+            * {
+                padding: 0;
+                margin: 0
+            }
+
+            hr {
+                overflow: visible;
+                height: 0;
+                color: inherit;
+                border: 0;
+                border-top: 1px solid
+            }
+
+            details,main {
+                display: block
+            }
+
+            summary {
+                display: list-item
+            }
+
+            small {
+                font-size: 80%
+            }
+
+            [hidden] {
+                display: none!important
+            }
+
+            abbr[title] {
+                border-bottom: none;
+                text-decoration: underline;
+                text-decoration: underline dotted
+            }
+
+            a {
+                background-color: transparent
+            }
+
+            a:active,a:hover {
+                outline-width: 0
+            }
+
+            code,kbd,pre,samp {
+                font-family: monospace
+            }
+
+            pre {
+                font-size: 1em
+            }
+
+            b,strong {
+                font-weight: bolder
+            }
+
+            sub,sup {
+                font-size: 75%;
+                line-height: 0;
+                position: relative;
+                vertical-align: baseline
+            }
+
+            sub {
+                bottom: -.25em
+            }
+
+            sup {
+                top: -.5em
+            }
+
+            table {
+                border-color: inherit;
+                text-indent: 0
+            }
+
+            iframe {
+                border-style: none
+            }
+
+            input {
+                border-radius: 0
+            }
+
+            [type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button {
+                height: auto
+            }
+
+            [type=search] {
+                appearance: textfield;
+                outline-offset: -2px
+            }
+
+            [type=search]::-webkit-search-decoration {
+                appearance: none
+            }
+
+            textarea {
+                overflow: auto;
+                resize: vertical
+            }
+
+            button,input,optgroup,select,textarea {
+                font: inherit;
+                color: inherit
+            }
+
+            optgroup {
+                font-weight: 700
+            }
+
+            button {
+                overflow: visible
+            }
+
+            button,select {
+                text-transform: none
+            }
+
+            button,[type=button],[type=reset],[type=submit],[role=button] {
+                cursor: pointer
+            }
+
+            button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner {
+                border-style: none;
+                padding: 0
+            }
+
+            button,html [type=button],[type=reset],[type=submit] {
+                appearance: auto
+            }
+
+            button,input,select,textarea {
+                background-color: transparent;
+                border-style: none
+            }
+
+            button:-moz-focusring,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner {
+                outline: 1px dotted ButtonText
+            }
+
+            select {
+                appearance: none
+            }
+
+            a:focus,button:focus,input:focus,select:focus,textarea:focus {
+                outline-width: 0
+            }
+
+            select::-ms-expand {
+                display: none
+            }
+
+            select::-ms-value {
+                color: currentcolor
+            }
+
+            legend {
+                border: 0;
+                color: inherit;
+                display: table;
+                white-space: normal;
+                max-width: 100%
+            }
+
+            ::-webkit-file-upload-button {
+                appearance: auto;
+                color: inherit;
+                font: inherit
+            }
+
+            [disabled] {
+                cursor: default
+            }
+
+            img {
+                border-style: none
+            }
+
+            progress {
+                vertical-align: baseline
+            }
+
+            [aria-busy=true] {
+                cursor: progress
+            }
+
+            [aria-controls] {
+                cursor: pointer
+            }
+
+            [aria-disabled=true] {
+                cursor: default
+            }
+
+            ul,ol {
+                list-style-type: none
+            }
+
+            figure {
+                margin: 0
+            }
+
+            @keyframes slide-in {
+                0% {
+                    opacity: 0;
+                    transform: translateY(16px)
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0)
+                }
+            }
+
+            .gradient-blue {
+                background: radial-gradient(106.41% 128.47% at 50.15% 128.47%,#23abff,#3066ff)
+            }
+
+            .gradient-green {
+                background: radial-gradient(92.26% 118.88% at 50.15% .13%,#00c3c3,#00aab3)
+            }
+
+            .gradient-purple {
+                background: radial-gradient(165.12% 115.56% at 50.15% .13%,#a15aff,#00a0eb)
+            }
+
+            .bg-blue {
+                background-color: #f2f5ff
+            }
+
+            .bg-purple {
+                background-color: #f7f0ff
+            }
+
+            .bg-green {
+                background-color: #ebffed
+            }
+
+            .lock-screen {
+                font-family: FigtreeVF,sans-serif;
+                letter-spacing: normal;
+                position: fixed;
+                z-index: 2147483638;
+                right: 24px;
+                bottom: 24px;
+                width: 327px;
+                border-radius: 24px;
+                overflow: hidden;
+                box-shadow: 0 24px 32px #00000014;
+                animation: slide-in .3s ease-in-out forwards
+            }
+
+            .lock-screen__content {
+                position: relative;
+                padding: 24px 24px 64px
+            }
+
+            .lock-screen__close {
+                position: absolute;
+                top: 16px;
+                right: 16px;
+                width: 24px;
+                height: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: .5
+            }
+
+            .lock-screen__label {
+                height: 26px;
+                width: fit-content;
+                border-radius: 50px;
+                background-color: #fff3;
+                padding-inline:16px;display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                color: #fff;
+                font-size: 12px;
+                line-height: 18px;
+                margin: -8px auto 16px
+            }
+
+            .lock-screen__title {
+                color: #fff;
+                text-align: center;
+                font-size: 20px;
+                line-height: 28px;
+                font-weight: 600;
+                margin-bottom: 8px
+            }
+
+            .lock-screen__description {
+                color: #f5f6f7;
+                text-align: center;
+                font-size: 14px;
+                line-height: 20px
+            }
+
+            .lock-screen__description b {
+                font-weight: 600
+            }
+
+            .lock-screen__card {
+                position: relative;
+                z-index: 1;
+                margin-top: -44px;
+                background-color: #fff;
+                border-radius: 24px;
+                padding: 32px 20px 20px
+            }
+
+            .lock-screen__inner {
+                margin-bottom: 24px
+            }
+
+            .lock-screen__submit {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                font-weight: 700;
+                font-size: 16px;
+                height: 40px;
+                width: 100%;
+                border-radius: 12px;
+                padding-inline:16px;background-color: #f70;
+                color: #fff;
+                margin-bottom: 16px
+            }
+
+            .lock-screen__skip {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                line-height: 20px;
+                color: #82829c;
+                margin-inline:auto}
+
+            .price-card {
+                border: 1px solid #f2f2fc;
+                background: linear-gradient(254.14deg,#fafbff .04%,#f5f8ff 100.04%);
+                border-radius: 24px;
+                padding: 24px 28px
+            }
+
+            .price-card__label {
+                color: #4a5764;
+                text-align: center;
+                font-size: 14px;
+                line-height: 20px;
+                text-transform: uppercase;
+                margin-bottom: 16px
+            }
+
+            .price-card__price {
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                column-gap: 2px;
+                margin-bottom: 12px
+            }
+
+            .price-card__currency {
+                color: #515478;
+                font-size: 18px;
+                line-height: 28px
+            }
+
+            .price-card__number {
+                color: #14142a;
+                text-align: center;
+                font-size: 64px;
+                line-height: 54px
+            }
+
+            .price-card__wrap {
+                display: flex;
+                flex-direction: column
+            }
+
+            .price-card__decimal {
+                color: #515478;
+                font-size: 18px;
+                line-height: 28px;
+                font-weight: 600
+            }
+
+            .price-card__period {
+                color: #515478;
+                font-size: 14px;
+                line-height: 20px;
+                margin-top: -6px
+            }
+
+            .price-card__discount {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 12px
+            }
+
+            .price-card__discount-divider {
+                position: absolute;
+                z-index: 0;
+                top: 50%;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background-color: #dbe2f9;
+                transform: translateY(-50%)
+            }
+
+            .price-card__discount-icon {
+                position: absolute;
+                z-index: 1;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%)
+            }
+
+            .price-card__discount-text {
+                position: relative;
+                z-index: 2;
+                color: #fff;
+                font-size: 12px;
+                font-weight: 600;
+                line-height: 18px
+            }
+
+            .price-card__features {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                column-gap: 16px
+            }
+
+            .price-card__feature {
+                color: #222e3a;
+                font-size: 14px;
+                line-height: 20px;
+                display: flex;
+                align-items: center;
+                gap: 6px
+            }
+
+            .price-card__feature:before {
+                content: "";
+                display: block;
+                width: 4px;
+                height: 4px;
+                background-color: #20df9e;
+                border-radius: 50%;
+                flex-shrink: 0
+            }
+
+            .features-list {
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                gap: 12px
+            }
+
+            .features-list__item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 6px
+            }
+
+            .features-list__icon {
+                width: 52px;
+                height: 52px;
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center
+            }
+
+            .features-list__text {
+                color: #293a53;
+                text-align: center;
+                font-size: 16px;
+                line-height: 24px;
+                letter-spacing: -.1px
+            }
+        </style>
+    </template>
+    <style>
+        @font-face {
+            font-family: FigtreeVF;
+            src: url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2) format("woff2 supports variations"),url(chrome-extension://majdfhpaihoncoakbjgbdhglocklcgno/fonts/FigtreeVF.woff2) format("woff2-variations");
+            font-weight: 100 1000;
+            font-display: swap
+        }
+    </style>
+</veepn-lock-screen>
+</body></html>
